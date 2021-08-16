@@ -10,9 +10,11 @@ public class OADemo {
 //        URL jarPath = new URL("file:D:\\:lib\\SalaryCaler.jar");
 //        URLClassLoader urlClassLoader = new URLClassLoader(new URL[]{jarPath});
         String curPath = System.getProperty("user.dir");
-        SalaryClassLoader salaryClassLoader = new SalaryClassLoader(curPath + "\\out\\production\\ClassLoaderTest\\");
+//        SalaryClassLoader salaryClassLoader = new SalaryClassLoader(curPath + "\\out\\production\\ClassLoaderTest\\");
+
+        SalaryJarLoader salaryJarLoader = new SalaryJarLoader("D:\\lib\\SalaryCaler.jar");
         while(true){
-            money = calSalary(salary, salaryClassLoader);
+            money = calSalary(salary, salaryJarLoader );
             System.out.println("实际到手工资：" + money);
             Thread.sleep(1000);
         }
