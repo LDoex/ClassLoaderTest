@@ -25,6 +25,7 @@ public class SalaryClassLoader extends SecureClassLoader {
         int code;
         try {
             fis = new FileInputStream(new File(filePath));
+            code = fis.read();
             while((code = fis.read()) != -1){
                 ba.write(code);
             }

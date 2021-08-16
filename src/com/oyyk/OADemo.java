@@ -9,8 +9,8 @@ public class OADemo {
         Double money;
 //        URL jarPath = new URL("file:D:\\:lib\\SalaryCaler.jar");
 //        URLClassLoader urlClassLoader = new URLClassLoader(new URL[]{jarPath});
-
-        SalaryClassLoader salaryClassLoader = new SalaryClassLoader("D:\\Users\\oyyk\\IdeaProjects\\ClassLoaderTest\\out\\production\\ClassLoaderTest\\");
+        String curPath = System.getProperty("user.dir");
+        SalaryClassLoader salaryClassLoader = new SalaryClassLoader(curPath + "\\out\\production\\ClassLoaderTest\\");
         while(true){
             money = calSalary(salary, salaryClassLoader);
             System.out.println("实际到手工资：" + money);
