@@ -12,17 +12,18 @@ public class OADemo {
         String curPath = System.getProperty("user.dir");
 //        SalaryClassLoader salaryClassLoader = new SalaryClassLoader(curPath + "\\out\\production\\ClassLoaderTest\\");
 
-        SalaryJarLoader salaryJarLoader = new SalaryJarLoader("D:\\lib\\SalaryCaler.jar");
+
         while(true){
-            money = calSalary(salary, salaryJarLoader );
+            money = calSalary(salary);
             System.out.println("实际到手工资：" + money);
             Thread.sleep(1000);
         }
     }
 
-    private static Double calSalary(Double salary, ClassLoader classLoader) throws Exception {
+    private static Double calSalary(Double salary) throws Exception {
 //        SalaryCaler caler = new SalaryCaler();
 //        return caler.cal(salary);
+        SalaryJarLoader classLoader = new SalaryJarLoader("D:\\lib\\SalaryClaer.jar");
         Class<?> clazz = classLoader.loadClass("com.oyyk.SalaryCaler");
         Object object = clazz.newInstance();
         return (Double) clazz.getMethod("cal", Double.class).invoke(object, salary);

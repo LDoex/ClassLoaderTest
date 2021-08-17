@@ -21,6 +21,7 @@ public class SalaryJarLoader extends SecureClassLoader {
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
+        System.out.println("重新加载类："+name);
 //        String filePath = this.classPath + name.replace(".", "\\").concat(".myclass");
         String classPath = name.replace(".", "/").concat(".class");
         InputStream inputStream;
