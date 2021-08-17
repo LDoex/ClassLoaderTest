@@ -39,7 +39,8 @@ public class SalaryJarLoader extends SecureClassLoader {
             b = ba.toByteArray();
             return this.defineClass(name, b, 0, b.length);
         } catch (Exception e){
-            throw new ClassNotFoundException("自定义文件不存在");
+            System.out.println("文件还未复制完");
+            return null;
         }
         //return super.findClass(name);
     }

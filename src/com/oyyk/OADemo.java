@@ -25,7 +25,10 @@ public class OADemo {
 //        return caler.cal(salary);
         SalaryJarLoader classLoader = new SalaryJarLoader("D:\\lib\\SalaryClaer.jar");
         Class<?> clazz = classLoader.loadClass("com.oyyk.SalaryCaler");
-        Object object = clazz.newInstance();
-        return (Double) clazz.getMethod("cal", Double.class).invoke(object, salary);
+        if(null != clazz){
+            Object object = clazz.newInstance();
+            return (Double) clazz.getMethod("cal", Double.class).invoke(object, salary);
+        }
+        return null;
     }
 }
