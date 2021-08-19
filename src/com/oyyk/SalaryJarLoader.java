@@ -20,6 +20,14 @@ public class SalaryJarLoader extends SecureClassLoader {
     }
 
     @Override
+    public Class<?> loadClass(String name) throws ClassNotFoundException {
+        if(name.startsWith("com.oyyk")){
+            return this.findClass(name);
+        }
+        return super.loadClass(name);
+    }
+
+    @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         System.out.println("重新加载类："+name);
 //        String filePath = this.classPath + name.replace(".", "\\").concat(".myclass");

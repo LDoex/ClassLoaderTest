@@ -23,7 +23,7 @@ public class OADemo {
     private static Double calSalary(Double salary) throws Exception {
 //        SalaryCaler caler = new SalaryCaler();
 //        return caler.cal(salary);
-        SalaryJarLoader classLoader = new SalaryJarLoader("D:\\lib\\SalaryClaer.jar");
+        SalaryJarLoader classLoader = new SalaryJarLoader("D:\\lib\\SalaryCaler.jar");
         Class<?> clazz = classLoader.loadClass("com.oyyk.SalaryCaler");
         if(null != clazz){
             Object object = clazz.newInstance();
